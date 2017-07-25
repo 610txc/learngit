@@ -5,6 +5,8 @@ Git tracks changes.
 Creating a new branch is quick.
 this line is fixed conflict dev and master
 
+fix bug 101
+
 gitÃüÁî£º
 //³õÊ¼»¯
 git init
