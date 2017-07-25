@@ -3,7 +3,7 @@ Git is free software distributed under the GPL.
 Git has a mutable index called stage.
 Git tracks changes.
 Creating a new branch is quick.
-this line is add in branch master, after modify in branch dev.
+this line is fixed conflict dev and master
 
 gitÃüÁî£º
 //³õÊ¼»¯
