@@ -41,8 +41,16 @@ git reset HEAD file
 git rm filename
 git commit -m "remove filename"
 
-//
+//github 注册建立的库
+https://github.com/610txc/learngit.git
 
-//
+//建立远程库别称
+git remote add origin https://github.com/610txc/learngit.git
+
+//把本地库的内容推送到远程； 只要本地库做了提交，就可以把本地master分支的最新修改推送至GitHub
+git push -u origin master
+
+//删除远程名称
+git remote remove origin
 
 //
