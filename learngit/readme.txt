@@ -99,3 +99,6 @@ git log --graph --pretty=oneline --abbrev-commit
 
 //分支合并时候，git会默认用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息
 //如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息
+
+//准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward
+git merge --no-ff -m "merge with no-ff" dev
