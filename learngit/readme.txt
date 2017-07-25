@@ -119,3 +119,38 @@ git stash drop
 
 //可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令
 git stash apply stash@{0}
+
+
+https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001376026233004c47f22a16d1f4fa289ce45f14bbc8f11000
+//开发一个新feature，最好新建一个分支；
+//如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除
+git branch -D <branchname>
+
+//查看远程库的信息，
+git remote
+//查看远程库的详细信息，包括抓取和推送的地址
+git remote -v
+
+//各个分支使用建议：
+master分支是主分支，因此要时刻与远程同步；
+dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+
+//你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：
+git checkout -b dev origin/dev
+//他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：
+git commit -m "add 。。。"
+git push origin dev
+
+//小伙伴提交后，我再推送dev失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，
+//Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送
+git pull
+
+//如果git pull也失败（no tracking information）了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
+git branch --set-upstream dev origin/dev
+
+//git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：
+
+git commit -m "merge conflict with other person"
+git push origin dev
