@@ -92,3 +92,10 @@ git branch -d dev
 
 删除分支：git branch -d <name>
 
+//分支合并冲突时，Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改如下后保存，再提交即可 add ，commit
+
+//用带参数的git log也可以看到分支的合并情况
+git log --graph --pretty=oneline --abbrev-commit
+
+//分支合并时候，git会默认用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息
+//如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息
