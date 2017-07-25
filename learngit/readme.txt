@@ -70,3 +70,6 @@ git checkout dev
 
 //查看当前分支
 git branch
+
+//切回到master分支
+git checkout master
