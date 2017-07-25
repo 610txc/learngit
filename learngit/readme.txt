@@ -102,3 +102,18 @@ git log --graph --pretty=oneline --abbrev-commit
 
 //准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward
 git merge --no-ff -m "merge with no-ff" dev
+
+//Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+git stash
+
+//查看“储藏”起来的当前工作现场
+git stash list
+
+//两种恢复办法：
+//一是恢复后，stash内容并不删除
+git stash apply
+//一是恢复后，stash内容删除
+git stash drop
+
+//可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令
+git stash apply stash@{0}
