@@ -154,3 +154,44 @@ git branch --set-upstream dev origin/dev
 
 git commit -m "merge conflict with other person"
 git push origin dev
+git push origin master
+
+//标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像,但是分支可以移动，标签不能移动）
+//首先切换到需要打标签的分支上
+git branch
+git checkout master
+git tag v1.0
+
+//查看所有标签
+git tag
+
+//默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？
+//方法是找到历史提交的commit id，然后打上就可以了：
+git log --pretty=oneline --abbrev-commit
+git tag v0.9 6224937
+
+//创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+git tag -a v0.1 -m "version 0.1 released" 3628164
+
+//还可以通过-s用私钥签名一个标签：
+git tag -s v0.2 -m "signed version 0.2 released" fec145a
+
+//签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错：
+gpg: signing failed: secret key not available
+error: gpg failed to sign the data
+error: unable to sign the tag
+//如果报错，请参考GnuPG帮助文档配置Key
+
+//删除标签
+git tag -d v0.1
+
+//标签是建立在本地的，推送某个标签到远程，使用命令
+git push origin <tagname>
+
+//一次性推送全部尚未推送到远程的本地标签
+git push origin --tags
+
+//标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除，再从远程删除
+git tag -d v0.9
+git push origin :refs/tags/v0.9
+
