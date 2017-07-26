@@ -45,7 +45,7 @@ git reset HEAD file
 git rm filename
 git commit -m "remove filename"
 
-//github 注册建立的库
+//github网站 注册建立库
 https://github.com/610txc/learngit.git
 
 //关联一个远程库
